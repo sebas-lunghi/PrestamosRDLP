@@ -1,0 +1,286 @@
+/* Estilo general del body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-image: url(../images/background1.jpg);
+    background-size: cover;
+    background-color: #ede5dc;
+}
+
+/* Estilo para los formularios y botones */
+label {
+    margin-top: 10px;
+    display: block;
+    font-weight: bold;
+}
+
+.form-title {
+    background: linear-gradient(to right, #a0d8e8, transparent);
+    margin-top: 15px;
+    padding: 10px;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+    max-width: 600px;
+}
+
+input, button {
+    margin-bottom: 15px;
+    padding: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background-color: #ecebeb;
+    border: 1px solid #c1c0c08d;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+input:focus, button:focus {
+    outline: none;
+    border-color: #6c6cff;
+    box-shadow: 0 0 8px rgba(108, 108, 255, 0.3);
+}
+
+button.enviar {
+    padding: 25px;
+}
+
+/* Estilo del botón de carga de archivos */
+input[type="file"] {
+    padding: 8px;
+    background-color: #ede5dc;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    display: none;
+}
+
+/* Contenedor para el botón de archivo y el nombre del archivo */
+.file-input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+    flex-wrap: wrap; /* Ajusta el layout para pantallas pequeñas */
+}
+
+/* Estilo para el botón de archivo */
+.file-button {
+    padding: 12px 30px;
+    background-color: #4c72af;
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    flex-shrink: 0;
+    width: auto;
+}
+
+/* Efecto al pasar el ratón sobre el botón */
+.file-button:hover {
+    background-color: #3f6094;
+    transform: scale(1);
+}
+
+/* Estilo para el nombre del archivo */
+.file-name {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #333;
+    white-space: nowrap;
+    flex-grow: 1;
+}
+
+/* Estilo para la opción seleccionada pero deshabilitada */
+#organismo option:disabled {
+    color: #666; /* Gris oscuro */
+    background-color: #f5f5f5; /* Color de fondo más claro */
+}
+
+/* Estilo para el select de organismo */
+#organismo {
+    margin-bottom: 15px;
+    padding: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background-color: #ecebeb;
+    border: 1px solid #c1c0c08d;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Estilo de foco para el select */
+#organismo:focus {
+    outline: none;
+    border-color: #6c6cff;
+    box-shadow: 0 0 8px rgba(108, 108, 255, 0.3);
+}
+
+/* Estilo para el botón de envío */
+button {
+    background-color: #4c72af;
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #3f6094;
+}
+
+/* Enlaces de botones */
+.links {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.links button {
+    width: 48%;
+    border-radius: 0;
+}
+
+.links button:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.links button:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .file-input-container {
+        flex-direction: column; /* Alineación vertical en pantallas pequeñas */
+        gap: 10px;
+    }
+
+    .file-name {
+        font-size: 12px;
+        margin-left: 5px;
+    }
+
+    .file-button {
+        width: 100%;
+    }
+
+    input, button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+/* Estilo para el botón de WhatsApp */
+.whatsapp-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.whatsapp-button:hover {
+    background-color: #45a049;
+    transform: scale(1.01);
+}
+
+/* Estilo para los contenedores de los teléfonos */
+.telefono-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Estilo para el campo del código de área */
+.codigo-area {
+    width: 15%;
+    padding: 12px;
+    border: 1px solid #c1c0c08d;
+    font-size: 16px;
+    border-radius: 8px;
+    color: #bbb;
+}
+
+/* Estilo para el campo del teléfono */
+.telefono {
+    width: 85%;
+    padding: 12px;
+    border: 1px solid #c1c0c08d;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+/* Cambiar el color del texto del código de área cuando tenga contenido */
+.codigo-area:focus,
+.codigo-area:not([value=""]) {
+    color: black;
+}
+
+/* Estilo para cuando el input tiene foco (cuando el usuario hace clic) */
+.codigo-area:focus,
+.telefono:focus {
+    outline: none;
+    border-color: #6c6cff;
+    box-shadow: 0 0 8px rgba(108, 108, 255, 0.3);
+}
+
+footer {
+    margin-top: 200px;
+    text-align: center;
+    padding: 5px 0;
+    border-top: 2px solid black;
+}
+
+footer img {
+    max-width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+footer h3 {
+    margin-top: 10px;
+    font-size: 10px;
+    color: #333;
+}
+
+/* Estilo para el select de organismo */
+#organismo {
+    margin-bottom: 15px;
+    padding: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background-color: #ecebeb;
+    border: 1px solid #c1c0c08d;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+#organismo option:disabled {
+    color: #666;
+    background-color: #f5f5f5;
+}
+
+#organismo:focus {
+    outline: none;
+    border-color: #6c6cff;
+    box-shadow: 0 0 8px rgba(108, 108, 255, 0.3);
+}

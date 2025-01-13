@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Simple</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Banner */
+        .banner {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Para alinear el botón y el texto en una fila */
+        .file-input-container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .file-button {
+            margin-right: 10px;
+        }
+
+        .file-name {
+            white-space: nowrap;
+        }
+
+        /* Aseguramos que los campos de formulario se alineen correctamente */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label, input {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <img src="images/banner1.png" alt="Banner" class="banner">
+    <div class="form-title">
+        ① Completar el siguiente formulario con sus datos:
+      </div>
+    <form id="dataForm">
+        <!-- Los campos del formulario -->
+        <label for="name">Nombre/s y Apellido/s:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="dni">DNI:</label>
+        <input type="text" id="dni" name="dni" required maxlength="10">
+
+        <label for="fecha">Fecha de nacimiento (ej: 25/05/1988): </label>
+        <input type="text" id="fecha" name="fecha" required maxlength="10">
+
+        <label for="organismo">Organismo al que pertenece:</label>
+<select id="organismo" name="organismo" required>
+    <option value="" disabled selected>Seleccione una opción</option>
+    <option value="CDP">Caja de Policía</option>
+    <option value="IPS">IPS</option>
+    <option value="MDE">Ministerio de Educación</option>
+    <option value="PB">Policía Bonaerense</option>
+    <option value="SPB">Servicio Penitenciario Bonaerense</option>
+    <option value="OT">Otro</option>
+</select>
+
+        <label for="telefono">Número de Teléfono (en lo posible que utilice WhatsApp)</label>
+<div class="telefono-container">
+    <input type="text" id="codigo-area" name="codigo-area" placeholder="Código de área" maxlength="5" class="codigo-area">
+    <input type="text" id="telefono" name="telefono" placeholder="Número de teléfono" required class="telefono">
+</div>
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="contacto">Nombre de un contacto o familiar de referencia </label>
+        <input type="text" id="contacto" name="contacto" required>
+
+        <label for="telefonocontacto">Teléfono del contacto o familiar de referencia</label>
+<div class="telefono-container">
+    <input type="text" id="codigo-area-contacto" name="codigo-area-contacto" placeholder="Código de área" maxlength="5" class="codigo-area">
+    <input type="text" id="telefonocontacto" name="telefonocontacto" placeholder="Número de teléfono" required class="telefono">
+</div>
+
+        <label for="Parentezco">Parentezco con la persona de contacto o familiar de referencia </label>
+        <input type="text" id="Parentezco" name="Parentezco" required>
+
+        <div class="form-title">
+            ② Digitalizar firma
+          </div>
+        <h3>Descargar la App Signaturamaker (link a continuación) para digitalizar su firma</h3> <br>
+        <div class="links">
+            <button type="button" onclick="window.location.href='https://play.google.com/store/apps/details?id=com.signaturemaker.app'">Descargar Signaturamaker para Android</button>
+            <button type="button" onclick="window.location.href='https://apps.apple.com/tr/app/signature-maker-signature/id1491326276'">Descargar Signaturamaker para iOS</button>
+        </div>
+
+        <label for="firma">Cargar Firma digitalizada</label>
+        <div class="file-input-container">
+            <button type="button" class="file-button" onclick="document.getElementById('firma').click()">Elegir archivo</button>
+            <span id="file-name-firma" class="file-name">Ningún archivo seleccionado</span>
+            <input type="file" id="firma" name="firma" multiple accept="image/*,application/pdf" class="file-input" onchange="updateFileName('firma')">
+        </div>
+
+        <div class="form-title">
+            ③ Cargar los siguientes archivos
+          </div>
+
+        <label for="dni1">Frente de DNI</label>
+        <div class="file-input-container">
+            <button type="button" class="file-button" onclick="document.getElementById('dni1').click()">Elegir archivo</button>
+            <span id="file-name-dni1" class="file-name">Ningún archivo seleccionado</span>
+            <input type="file" id="dni1" name="dni1" multiple accept="image/*,application/pdf" class="file-input" onchange="updateFileName('dni1')">
+        </div>
+
+        <label for="dni2">Dorso del DNI</label>
+        <div class="file-input-container">
+            <button type="button" class="file-button" onclick="document.getElementById('dni2').click()">Elegir archivo</button>
+            <span id="file-name-dni2" class="file-name">Ningún archivo seleccionado</span>
+            <input type="file" id="dni2" name="dni2" multiple accept="image/*,application/pdf" class="file-input" onchange="updateFileName('dni2')">
+        </div>
+
+        <label for="cbu">Comprobante CBU</label>
+        <div class="file-input-container">
+            <button type="button" class="file-button" onclick="document.getElementById('cbu').click()">Elegir archivo</button>
+            <span id="file-name-cbu" class="file-name">Ningún archivo seleccionado</span>
+            <input type="file" id="cbu" name="cbu" multiple accept="image/*,application/pdf" class="file-input" onchange="updateFileName('cbu')">
+        </div>
+
+        <label for="movimientos">Comprobante últimos movimientos bancarios</label>
+        <div class="file-input-container">
+            <button type="button" class="file-button" onclick="document.getElementById('movimientos').click()">Elegir archivo</button>
+            <span id="file-name-movimientos" class="file-name">Ningún archivo seleccionado</span>
+            <input type="file" id="movimientos" name="movimientos" multiple accept="image/*,application/pdf" class="file-input" onchange="updateFileName('movimientos')">
+        </div>
+
+        <label for="servicio">Factura de servicio a su nombre (ej: celular, tarjeta, cable, luz, etc)</label>
+        <div class="file-input-container">
+            <button type="button" class="file-button" onclick="document.getElementById('servicio').click()">Elegir archivo</button>
+            <span id="file-name-servicio" class="file-name">Ningún archivo seleccionado</span>
+            <input type="file" id="servicio" name="servicio" multiple accept="image/*,application/pdf" class="file-input" onchange="updateFileName('servicio')">
+        </div>
+
+        <label for="afectacion">Certificado de afectación</label>
+        <div class="file-input-container">
+            <button type="button" class="file-button" onclick="document.getElementById('afectacion').click()">Elegir archivo</button>
+            <span id="file-name-afectacion" class="file-name">Ningún archivo seleccionado</span>
+            <input type="file" id="afectacion" name="afectacion" multiple accept="image/*,application/pdf" class="file-input" onchange="updateFileName('afectacion')">
+        </div>
+        
+        <label for="selfie-dni">Selfie junto a su DNI para validar identidad </label>
+        <div class="file-input-container">
+            <button type="button" class="file-button" onclick="document.getElementById('selfie-dni').click()">Elegir archivo</button>
+            <span id="file-name-selfie-dni" class="file-name">Ningún archivo seleccionado</span>
+            <input type="file" id="selfie-dni" name="selfie-dni" multiple accept="image/*,application/pdf" class="file-input" onchange="updateFileName('selfie-dni')">
+        </div>
+
+        <h3>Asegúrese de que no quede ningún campo sin completar </h3>
+        <button class="enviar">ENVIAR FORMULARIO</button>
+
+        <div class="form-title">
+            ④ Una vez que el asesor le apruebe el préstamo, le enviará un formulario que deberá firmar digitalmente con la app Signeasy
+          </div>
+
+        <div class="links">
+            <button type="button" onclick="window.location.href='https://play.google.com/store/apps/details?id=com.signeasy'">Descargar Signeasy para Android</button>
+            <button type="button" onclick="window.location.href='https://apps.apple.com/es/app/signeasy-firma-de-documentos/id381786507'">Descargar Signaturamaker para iOS</button>
+        </div>
+
+        <div class="form-title">
+            ⑤ Firmar el formulario mediante la app Signeasy y enviéselo a su asesor por WhatsApp
+          </div>
+
+        <button type="button" class="whatsapp-button" onclick="window.location.href='https://wa.me/'"> Abrir WhatsApp</button>
+    </form>
+
+    <!-- Script de EmailJS -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        // Inicializa EmailJS con tu User ID
+        (function() {
+            emailjs.init("PrestamosRiodeLaPlataGmail"); 
+        })();
+
+        // Función para actualizar el nombre del archivo cargado
+        function updateFileName(fileId) {
+            const fileInput = document.getElementById(fileId);
+            const fileNameSpan = document.getElementById(`file-name-${fileId}`);
+            
+            if (fileInput.files.length > 0) {
+                fileNameSpan.textContent = fileInput.files[0].name; // Actualizar con el nombre del archivo
+            } else {
+                fileNameSpan.textContent = 'Ningún archivo seleccionado'; // Si no hay archivo
+            }
+        }
+
+        // Maneja el envío del formulario
+        document.getElementById("dataForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evita el envío predeterminado del formulario
+
+            // Configura los parámetros del correo
+            const formData = new FormData(this);
+            emailjs.sendForm('service_xxx', 'template_xxx', formData)
+                .then(function(response) {
+                    alert('Formulario enviado con éxito');
+                }, function(error) {
+                    alert('Hubo un error al enviar el formulario');
+                });
+        });
+
+        // Función para formatear el DNI con puntos
+        function formatDNI(input) {
+            let value = input.value.replace(/\D/g, ''); // Elimina cualquier carácter no numérico
+            if (value.length > 2) {
+                value = value.substring(0, 2) + '.' + value.substring(2);
+            }
+            if (value.length > 6) {
+                value = value.substring(0, 6) + '.' + value.substring(6);
+            }
+            input.value = value;
+        }
+
+        // Función para formatear la fecha en formato dd/mm/yyyy
+        function formatDate(input) {
+            let value = input.value.replace(/\D/g, ''); // Elimina cualquier carácter no numérico
+            if (value.length > 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2);
+            }
+            if (value.length > 5) {
+                value = value.substring(0, 5) + '/' + value.substring(5);
+            }
+            input.value = value;
+        }
+
+        // Aplicar las funciones de formato a los campos de DNI y Fecha
+        document.getElementById('dni').addEventListener('input', function() {
+            formatDNI(this);
+        });
+
+        document.getElementById('fecha').addEventListener('input', function() {
+            formatDate(this);
+        });
+    </script>
+
+    <footer><img src="./images/sewwweb-black.png" alt="">
+    <h3>Copyright © 2025 Sewwweb, Dev.</h3></footer>
+</body>
+</html>
