@@ -1,1 +1,10 @@
 hola me ayudas a crear una app en la que tenga que la persona que entra tenga que cargar datos personales en campos para completar, luego un link que te lleve a la play store de google para descargar la app Signaturemaker y abajo la opcion de cargar 5 archivos diferentes separados en formato imagen o pdf.  Que toda esta info se envie como mail a la cuenta depleche@gmail.com. y por ultimo un link para descargar la app Signeasy
+
+
+userID/publicKey: bvZoW8fvEFXWqQ7a-
+
+templateID: template_cc0767c
+
+serviceID: service_tfqevdi
+
+https://dataprestamosriodelaplata.vercel.app
